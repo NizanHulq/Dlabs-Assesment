@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Keanggotaan</title>
+    <link rel="stylesheet" href="./style.css">
+    <!-- Sertakan Font Inter dari Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Data Keanggotaan</h1>
+        </header>
+
+        <main class="card">
+            <div class="controls">
+                <div class="select-wrapper">
+                    <label for="statusFilter">Filter Status:</label>
+                    <select id="statusFilter" onchange="filterByStatus(this.value)">
+                        <option value="semua">Semua Status</option>
+                        <option value="Aktif">Aktif</option>
+                        <option value="Tidak Aktif">Tidak Aktif</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th data-sort="nama" onclick="sortData('nama')">Nama</th>
+                            <th>Email</th>
+                            <th data-sort="umur" onclick="sortData('umur')">Umur</th>
+                            <th>Status</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Data akan dirender melalui JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <!-- Form Create -->
+    <div class="form-container card">
+        <h2>Tambah Data Pengguna</h2>
+        <form id="userForm" class="add-user-form">
+            <div class="form-group">
+                <label for="nama">Nama Lengkap *</label>
+                <input type="text" id="nama" name="nama" required>
+            </div>
+    
+            <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" required>
+                <span class="error-message" id="emailError"></span>
+            </div>
+    
+            <div class="form-group">
+                <label for="umur">Umur *</label>
+                <input type="number" id="umur" name="umur" min="1" max="120" required>
+            </div>
+    
+            <div class="form-group">
+                <label for="status">Status Keanggotaan *</label>
+                <select id="status" name="status" required>
+                    <option value="">Pilih Status</option>
+                    <option value="Aktif">Aktif</option>
+                    <option value="Tidak Aktif">Tidak Aktif</option>
+                </select>
+            </div>
+    
+            <button type="submit" class="submit-btn">Tambah Pengguna</button>
+        </form>
+    </div>
+
+    <!-- Modal Edit -->
+    <div id="editModal" class="modal">
+        <div class="modal-content card">
+            <h2>Edit Data Pengguna</h2>
+            <form id="editForm" class="edit-user-form">
+                <input type="hidden" id="editId" name="id">
+    
+                <div class="form-group">
+                    <label for="editNama">Nama Lengkap *</label>
+                    <input type="text" id="editNama" name="nama" required>
+                </div>
+    
+                <div class="form-group">
+                    <label for="editEmail">Email *</label>
+                    <input type="email" id="editEmail" name="email" required>
+                    <span class="error-message" id="editEmailError"></span>
+                </div>
+    
+                <div class="form-group">
+                    <label for="editUmur">Umur *</label>
+                    <input type="number" id="editUmur" name="umur" min="1" max="120" required>
+                </div>
+    
+                <div class="form-group">
+                    <label for="editStatus">Status Keanggotaan *</label>
+                    <select id="editStatus" name="status" required>
+                        <option value="Aktif">Aktif</option>
+                        <option value="Tidak Aktif">Tidak Aktif</option>
+                    </select>
+                </div>
+    
+                <div class="modal-buttons">
+                    <button type="submit" class="submit-btn">Simpan Perubahan</button>
+                    <button type="button" class="cancel-btn" onclick="closeModal()">Batal</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
