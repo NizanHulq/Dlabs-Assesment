@@ -76,8 +76,8 @@ const EditModal = ({ user, onClose, onSubmit }) => {
           </div>
 
           <div className="modal-buttons">
-            <button type="submit">Simpan Perubahan</button>
-            <button type="button" onClick={onClose}>
+            <button className="submit-btn" type="submit">Simpan Perubahan</button>
+            <button className="cancel-btn" type="button" onClick={onClose}>
               Batal
             </button>
           </div>

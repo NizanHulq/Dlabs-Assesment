@@ -312,7 +312,6 @@ tr:hover td {
   color: #dc2626;
   font-size: 0.875rem;
   margin-top: 0.25rem;
-  display: none;
 }
 
 .submit-btn {
@@ -358,6 +357,8 @@ tr:hover td {
 .edit-btn,
 .delete-btn {
     padding: 6px 12px;
+    margin-left: 2px;
+    margin-right: 2px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -385,7 +386,6 @@ tr:hover td {
 
 /* Modal Styling */
 .modal {
-    display: none;
     position: fixed;
     top: 0;
     left: 0;

@@ -48,14 +48,16 @@ const UserForm = ({ onSubmit }) => {
     onSubmit(newUser); 
     reset();
   };
+    
 
   return (
     <form onSubmit={handleSubmit(onFormSubmit)} className="add-user-form">
       <div className="form-group">
         <label>Nama Lengkap *</label>
         <input {...register("nama")} />
+        
         {errors.nama && (
-          <span className="error-message">{errors.nama.message}</span>
+          <span className="error-message">{errors.nama?.message}</span>
         )}
       </div>
 
